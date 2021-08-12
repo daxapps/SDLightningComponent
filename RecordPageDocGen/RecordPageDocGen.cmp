@@ -1,0 +1,3 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="RecordPageDocGenController" access="global">
+    <ui:button press="{!c.openDocumentGenerationPage}">Generate the Document</ui:button>
+</aura:component>
