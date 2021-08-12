@@ -1,0 +1,31 @@
+@isTest
+public class RecordPageDocGenControllerTest {   
+    @IsTest
+    static void testGetTemplateID(){
+        String expectedObject = 'SDOC__SDTemplate__c';
+        Test.startTest();
+        try {
+            Id noTemplateId = RecordPageDocGenController.getTemplateID();
+        } catch (AuraHandledException ex) {
+            
+        }
+        SDOC__SDTemplate__c dealSheet = new SDOC__SDTemplate__c();
+        dealSheet.Name = RecordPageDocGenController.templateName;
+        dealSheet.SDOC__Base_Object__c = 'Opportunity';
+        dealSheet.SDOC__Template_Format__c = 'PDF';
+        insert dealSheet;
+        Id templateId = RecordPageDocGenController.getTemplateID();
+        System.assertEquals(expectedObject, templateId.getSObjectType().getDescribe().getName());
+        SDOC__SDTemplate__c doubleDealSheet = new SDOC__SDTemplate__c();
+        doubleDealSheet.Name = RecordPageDocGenController.templateName;
+        doubleDealSheet.SDOC__Base_Object__c = 'Opportunity';
+        doubleDealSheet.SDOC__Template_Format__c = 'PDF';
+        insert doubleDealSheet;
+        try {
+            Id doubleTemplateId = RecordPageDocGenController.getTemplateID();
+        } catch (AuraHandledException ex) {
+            
+        }
+        Test.stopTest();    
+    }
+}
