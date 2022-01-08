@@ -1,6 +1,6 @@
 # SDLightningComponent
 
-Lightning Component Installation: see attached ZIP file<br />
+Lightning Component Installation<br />
 ● Open Dev Console<br />
 ● File->New->Lightning Component<br />
 ● Paste in .cmp file<br />
